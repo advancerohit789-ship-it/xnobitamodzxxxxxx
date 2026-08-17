@@ -1,0 +1,113 @@
+╭══ ╳-♡ 𝙓 𝙉𝙊𝘽𝙄𝙏𝘼 𝙈𝙊𝘿𝙕 ♡🫶🏻❤️‍🩹
+┃ ʀᴜɴ     : 01h 59m 26s
+┃🫀 ᴍᴏᴅᴇ    : PUBLIC ❤️‍🩹
+┃ ᴘʀᴇғɪx  : .
+┃ ᴠᴇʀsɪᴏɴ : 2.0.0
+┃ᴛɪᴍᴇ    : 08:51:59
+┃🫂 ᴜsᴇʀ    : 𝙓 𝙉𝙊𝘽𝙄𝙏𝘼
+┃ ᴏᴡɴᴇʀ   : 𝙓 𝙉𝙊𝘽𝙄𝙏𝘼
+┃ ᴅᴇᴠᴇʟᴏᴘᴇʀ : 𝙓 𝙉𝙊𝘽𝙄𝙏𝘼
+╰═════════════════⊷
+
+♡︎•━━━━━ 𝙓 𝙉𝙊𝘽𝙄𝙏𝘼 𝙈𝙊𝘿𝙕 🤌🏻━━━━━━•♡︎
+
+╭────❒ 𝑴𝑨𝑰𝑵 ❒
+├◈ ping
+├◈ alive
+├◈ menu
+├◈ owner
+┕──────────────────❒
+
+╭────❒ 𝑩𝑶𝑻 𝑪𝑶𝑵𝑻𝑹𝑶𝑳 ❒
+├◈ public
+├◈ private
+├◈ setprefix
+├◈ restart
+├◈ update
+┕──────────────────❒
+
+╭────❒ 𝑮𝑹𝑶𝑼𝑷 ❒
+├◈ tagall
+├◈ hidetag
+├◈ kick
+├◈ promote
+├◈ demote
+├◈ linkgc
+├◈ antilink
+├◈ welcome
+├◈ wstatus
+├◈ warn
+├◈ warnlist
+├◈ resetwarn
+├◈ setname
+├◈ setdesc
+├◈ grouplink
+├◈ revoke
+├◈ mute
+├◈ unmute
+├◈ delete
+┕──────────────────❒
+
+╭────❒ 𝑼𝑻𝑰𝑳𝑰𝑻𝒀 ❒
+├◈ uptime
+├◈ runtime
+├◈ info
+├◈ profile
+├◈ groupinfo
+├◈ id
+├◈ jid
+├◈ quote
+├◈ cstatus
+┕──────────────────❒
+
+╭────❒ 𝑫𝑶𝑾𝑵𝑳𝑶𝑨𝑫 ❒
+├◈ play
+┕──────────────────❒
+
+╭────❒ 𝑻𝑶𝑶𝑳𝑺 ❒
+├◈ sticker
+├◈ vv
+├◈ url
+┕──────────────────❒
+
+╭────❒ 𝑨𝑰 ❒
+├◈ ai
+┕──────────────────❒
+
+╭────❒ 𝑭𝑼𝑵 ❒
+├◈ joke
+├◈ truth
+├◈ dare
+├◈ riddle
+├◈ fact
+├◈ 8ball
+├◈ dice
+├◈ coin
+├◈ rate
+├◈ howlucky
+├◈ howcute
+├◈ autoreact
+┕──────────────────❒
+
+╭────❒ 𝑨𝑵𝑰𝑴𝑬 ❒
+├◈ anime
+├◈ animesearch
+├◈ animeinfo
+├◈ manga
+├◈ character
+├◈ waifu
+├◈ waifuimage
+├◈ husband
+├◈ neko
+├◈ animefact
+┕──────────────────❒
+
+╭────❒ 𝑿 𝑵𝑶𝑩𝑰𝑻𝑨 𝑴𝑶𝑫𝒁 ❒
+├◈ .public
+├◈ .private
+├◈ .setprefix
+├◈ .restart
+├◈ .update
+┕──────────────────❒
+
+~Made with love by 𝙓 𝙉𝙊𝘽𝙄𝙏𝘼 𝙈𝙊𝘿𝙕 😩🫶🏻~
