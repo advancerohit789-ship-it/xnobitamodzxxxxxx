@@ -513,7 +513,7 @@ async function startBot(authDir = "./session", options = {}) {
               `*💖🌷 প্রিয়, তোমাকে জানাই একরাশ মিষ্টি Welcome! 🥰🎀✨*\n\n` +
               `*তোমার আসায় আমাদের আড্ডাটাও আজ*\n` +
               `*আরও সুন্দর, মিষ্টি আর আনন্দময় হয়ে গেল!* 🥳🌸💞🦋✨\n\n` +
-              `⎯꯭𓆩𐏓꯭🇽 𝑵𝑶𝑩𝑰𝑻𝑨 ⎯͢♡`;
+              `⎯꯭𓆩𐙚 𝐌𝐢𝐬𝐭𝐢𝐢𝐢ᯓᡣ𐭩 ⎯͢♡`;
 
             const dp = await getProfilePictureBuffer(sock, userJid);
             if (dp) {
