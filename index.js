@@ -726,7 +726,7 @@ async function startBot(authDir = "./session", options = {}) {
           break;
         }
           case "misti":
-  await reply(`𝘏𝘦𝘦𝘺𝘺𝘺𝘺💋🦋!!
+           await reply(`𝘏𝘦𝘦𝘺𝘺𝘺𝘺💋🦋!!
 🌸 𝘔𝘪𝘴𝘵𝘪𝘪𝘪 𝘏𝘦𝘳𝘦𝘦𝘦 😋🎀!!
 𝘍𝘳𝘰𝘮 𝘵𝘩𝘦 𝘣𝘦𝘢𝘶𝘵𝘪𝘧𝘶𝘭 𝘈𝘭𝘪𝘱𝘶𝘳𝘥𝘶𝘢𝘳 🌚💗✨!!
 
@@ -739,7 +739,7 @@ async function startBot(authDir = "./session", options = {}) {
 
 🎀 𝘚𝘰 𝘺𝘦𝘢𝘩𝘩𝘩...
 𝘏𝘦𝘺 𝘎𝘶𝘺𝘴𝘴𝘴, 𝘓𝘦𝘵'𝘴 𝘔𝘦𝘦𝘵 💗🫶🏻✨!!`);
-  break;
+          break;
           
         case "ping":
           const start = Date.now();
