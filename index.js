@@ -725,6 +725,22 @@ async function startBot(authDir = "./session", options = {}) {
 
           break;
         }
+          case "misti":
+  await reply(`𝘏𝘦𝘦𝘺𝘺𝘺𝘺💋🦋!!
+🌸 𝘔𝘪𝘴𝘵𝘪𝘪𝘪 𝘏𝘦𝘳𝘦𝘦𝘦 😋🎀!!
+𝘍𝘳𝘰𝘮 𝘵𝘩𝘦 𝘣𝘦𝘢𝘶𝘵𝘪𝘧𝘶𝘭 𝘈𝘭𝘪𝘱𝘶𝘳𝘥𝘶𝘢𝘳 🌚💗✨!!
+
+🌷 𝘈𝘮𝘪 𝘦𝘬𝘵𝘶 𝘤𝘩𝘶𝘱𝘤𝘩𝘢𝘱,
+𝘦𝘬𝘵𝘶 𝘥𝘶𝘴𝘩𝘵𝘶 𝘢𝘳 𝘰𝘯𝘦𝘬 𝘣𝘦𝘴𝘩𝘪 𝘮𝘪𝘴𝘵𝘪𝘪𝘪 😚🎀🫶🏻
+𝘊𝘩𝘦𝘯𝘢 𝘩𝘰𝘬 𝘣𝘢 𝘯𝘢 𝘩𝘰𝘬,
+𝘢𝘫 𝘵𝘩𝘦𝘬𝘦 𝘢𝘮𝘪 𝘵𝘰𝘮𝘢𝘥𝘦𝘳 𝘴𝘩𝘢𝘵𝘩𝘦𝘪𝘪𝘪 💗🌸
+
+🌙 𝘈𝘥𝘥𝘢 • 𝘏𝘢𝘴𝘪 • 𝘗𝘢𝘨𝘭𝘢𝘮𝘪 • 𝘈𝘳 𝘌𝘬𝘵𝘶 𝘝𝘢𝘭𝘰𝘣𝘢𝘴𝘢 😋🦋💋!!
+
+🎀 𝘚𝘰 𝘺𝘦𝘢𝘩𝘩𝘩...
+𝘏𝘦𝘺 𝘎𝘶𝘺𝘴𝘴𝘴, 𝘓𝘦𝘵'𝘴 𝘔𝘦𝘦𝘵 💗🫶🏻✨!!`);
+  break;
+          
         case "ping":
           const start = Date.now();
           await reply("Testing Ping...");
@@ -761,6 +777,7 @@ async function startBot(authDir = "./session", options = {}) {
 ├◈ alive
 ├◈ menu
 ├◈ owner
+├◈ misti
 ┕──────────────────❒
 
 ╭────❒ 𝑩𝑶𝑻 𝑪𝑶𝑵𝑻𝑹𝑶𝑳 ❒
