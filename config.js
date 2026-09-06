@@ -3,5 +3,5 @@ module.exports = {
   prefix: ".",
   ownerName: "𝙓 𝙉𝙊𝘽𝙄𝙏𝘼",
   ownerNumber: "917699121991",
-  menuImage: "https://ik.imagekit.io/kfyseccyf/SHABAN-1788696165669_bI6N_BSvMv.jpg"
+  menuImage: "https://i.imgur.com/Nt47omy.jpeg"
 };
