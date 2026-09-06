@@ -794,147 +794,161 @@ async function startBot(authDir = "./session", options = {}) {
           await reply(ownerMsg);
           break;
 
-        case "menu":
-          const menuText = `╭══ ╳-♡ 𝙓 𝙉𝙊𝘽𝙄𝙏𝘼 𝙈𝙊𝘿𝙕 ♡🫶🏻❤️‍🩹
-┃ ʀᴜɴ     : 01h 59m 26s
-┃🫀 ᴍᴏᴅᴇ    : PUBLIC ❤️‍🩹
-┃ ᴘʀᴇғɪx  : .
+        case "menu": {
+  const uptime = formatTime(process.uptime());
+  const mode = global.botMode.toLowerCase();
+  const prefix = global.prefix;
+  const time = new Date().toLocaleTimeString();
+  const user = msg.pushName || "User";
+
+  const menuText = `┏❐  ◈ 𝐗 𝐍𝐎𝐁𝐈𝐓𝐀 𝐌𝐎𝐃 ◈
+┃ ᴏᴡɴᴇʀ : 𝐗 𝐍𝐎𝐁𝐈𝐓𝐀
+┃ ᴍᴏᴅᴇ : ${mode}
+┃ ʜᴏsᴛ : Node.js
+┃ sᴘᴇᴇᴅ : Online ⚡
+┃ ᴘʀᴇғɪx : ${prefix}
+┃ ᴜᴘᴛɪᴍᴇ : ${uptime}
+┃ ᴛɪᴍᴇ : ${time}
 ┃ ᴠᴇʀsɪᴏɴ : 2.0.0
-┃ ᴛɪᴍᴇ    : 08:51:59
-┃🫂 ᴜsᴇʀ    : 
-┃ ᴏᴡɴᴇʀ   : 𝙉𝙊𝘽𝙄𝙏𝘼
-┃ ᴅᴇᴠᴇʟᴏᴘᴇʀ : 𝗫 𝗛𝗔𝗖𝗞𝗘𝗥
-╰═════════════════⊷
+┃ ᴜsᴇʀ : ${user}
+┗❐
 
-♡︎•━━━━━ 𝙓 𝙉𝙊𝘽𝙄𝙏𝘼 𝙈𝙊𝘿𝙕 🤌🏻━━━━━━•♡︎
+┏❐ 《 𝐌𝐀𝐈𝐍 》 ❐
+┣◆ ping
+┣◆ pair
+┣◆ alive
+┣◆ menu
+┣◆ owner
+┣◆ misti
+┗❐
 
-╭────❒ 𝑴𝑨𝑰𝑵 ❒
-├◈ ping
-├◈ pair
-├◈ alive
-├◈ menu
-├◈ owner
-├◈ misti
-┕──────────────────❒
+┏❐ 《 𝐁𝐎𝐓 𝐂𝐎𝐍𝐓𝐑𝐎𝐋 》 ❐
+┣◆ public
+┣◆ private
+┣◆ setprefix
+┣◆ restart
+┣◆ update
+┗❐
 
-╭────❒ 𝑩𝑶𝑻 𝑪𝑶𝑵𝑻𝑹𝑶𝑳 ❒
-├◈ public
-├◈ private
-├◈ setprefix
-├◈ restart
-├◈ update
-┕──────────────────❒
+┏❐ 《 𝐔𝐓𝐈𝐋𝐈𝐓𝐘 》 ❐
+┣◆ uptime
+┣◆ runtime
+┣◆ info
+┣◆ profile
+┣◆ groupinfo
+┣◆ id
+┣◆ jid
+┣◆ quote
+┣◆ cstatus
+┗❐
 
-╭────❒ 𝑮𝑹𝑶𝑼𝑷 ❒
-├◈ tagall
-├◈ hidetag
-├◈ kick
-├◈ promote
-├◈ demote
-├◈ linkgc
-├◈ antilink
-├◈ antisticker
-├◈ antigroupmention
-├◈ welcome
-├◈ wstatus
-├◈ gstatus
-├◈ goodbye on
-├◈ goodbye off
-├◈ add
-├◈ admins
-├◈ tagadmins
-├◈ approve
-├◈ reject
-├◈ requests
-├◈ lock
-├◈ unlock
-├◈ disappear
-├◈ poll
-├◈ warn
-├◈ warnlist
-├◈ resetwarn
-├◈ setname
-├◈ setdesc
-├◈ grouplink
-├◈ revoke
-├◈ mute
-├◈ unmute
-├◈ delete
-┕──────────────────❒
+┏❐ 《 𝐆𝐑𝐎𝐔𝐏 》 ❐
+┣◆ add
+┣◆ admins
+┣◆ tagadmins
+┣◆ requests
+┣◆ approve
+┣◆ reject
+┣◆ lock
+┣◆ unlock
+┣◆ disappear
+┣◆ poll
+┣◆ tagall
+┣◆ hidetag
+┣◆ kick
+┣◆ promote
+┣◆ demote
+┣◆ linkgc
+┣◆ grouplink
+┣◆ revoke
+┣◆ mute
+┣◆ unmute
+┣◆ setname
+┣◆ setdesc
+┣◆ delete
+┣◆ antisticker
+┣◆ antigroupmention
+┣◆ antilink
+┣◆ welcome
+┣◆ goodbye
+┣◆ gstatus
+┣◆ wstatus
+┣◆ warn
+┣◆ warnlist
+┣◆ resetwarn
+┗❐
 
-╭────❒ 𝑼𝑻𝑰𝑳𝑰𝑻𝒀 ❒
-├◈ uptime
-├◈ runtime
-├◈ info
-├◈ profile
-├◈ groupinfo
-├◈ id
-├◈ jid
-├◈ quote
-├◈ cstatus
-┕──────────────────❒
+┏❐ 《 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 》 ❐
+┣◆ play
+┗❐
 
-╭────❒ 𝑫𝑶𝑾𝑵𝑳𝑶𝑨𝑫 ❒
-├◈ play
-┕──────────────────❒
+┏❐ 《 𝐓𝐎𝐎𝐋𝐒 》 ❐
+┣◆ sticker
+┣◆ vv
+┣◆ url
+┣◆ tourl
+┣◆ geturl
+┗❐
 
-╭────❒ 𝑻𝑶𝑶𝑳𝑺 ❒
-├◈ sticker
-├◈ vv
-├◈ url
-┕──────────────────❒
+┏❐ 《 𝐀𝐈 》 ❐
+┣◆ ai
+┗❐
 
-╭────❒ 𝑨𝑰 ❒
-├◈ ai
-┕──────────────────❒
+┏❐ 《 𝐅𝐔𝐍 》 ❐
+┣◆ joke
+┣◆ truth
+┣◆ dare
+┣◆ riddle
+┣◆ fact
+┣◆ 8ball
+┣◆ dice
+┣◆ coin
+┣◆ rate
+┣◆ howlucky
+┣◆ howcute
+┣◆ autoreact
+┣◆ autotyping
+┣◆ autoread
+┣◆ autostoryview
+┗❐
 
-╭────❒ 𝑭𝑼𝑵 ❒
-├◈ joke
-├◈ truth
-├◈ dare
-├◈ riddle
-├◈ fact
-├◈ 8ball
-├◈ dice
-├◈ coin
-├◈ rate
-├◈ howlucky
-├◈ howcute
-├◈ autoreact
-├◈ autotyping
-├◈ autoread
-├◈ autostoryview
-┕──────────────────❒
+┏❐ 《 𝐀𝐍𝐈𝐌𝐄 》 ❐
+┣◆ anime
+┣◆ animesearch
+┣◆ animeinfo
+┣◆ manga
+┣◆ character
+┣◆ waifu
+┣◆ waifuimage
+┣◆ husband
+┣◆ neko
+┣◆ animefact
+┗❐
 
-╭────❒ 𝑨𝑵𝑰𝑴𝑬 ❒
-├◈ anime
-├◈ animesearch
-├◈ animeinfo
-├◈ manga
-├◈ character
-├◈ waifu
-├◈ waifuimage
-├◈ husband
-├◈ neko
-├◈ animefact
-┕──────────────────❒
+┏❐ 《 𝐗 𝐍𝐎𝐁𝐈𝐓𝐀 𝐌𝐎𝐃 》 ❐
+┣◆ ${prefix}ping
+┣◆ ${prefix}menu
+┣◆ ${prefix}alive
+┣◆ ${prefix}owner
+┗❐
 
-╭────❒ 𝑿 𝑵𝑶𝑩𝑰𝑻𝑨 𝑴𝑶𝑫𝒁 ❒
-├◈ .public
-├◈ .private
-├◈ .setprefix
-├◈ .restart
-├◈ .update
-┕──────────────────❒
+~ 𝐌𝐚𝐝𝐞 𝐰𝐢𝐭𝐡 𝐥𝐨𝐯𝐞 𝐛𝐲 𝐗 𝐍𝐎𝐁𝐈𝐓𝐀 𝐌𝐎𝐃 🫶🏻❤️‍🩹 ~`;
 
-~Made with love by 𝙓 𝙉𝙊𝘽𝙄𝙏𝘼 𝙈𝙊𝘿𝙕 😩🫶🏻~`;
-          
-          if (config.menuImage) {
-            await sock.sendMessage(jid, { image: { url: config.menuImage }, caption: menuText }, { quoted: msg });
-          } else {
-            await reply(menuText);
-          }
-          break;
+  if (config.menuImage) {
+    await sock.sendMessage(
+      jid,
+      {
+        image: { url: config.menuImage },
+        caption: menuText
+      },
+      { quoted: msg }
+    );
+  } else {
+    await reply(menuText);
+  }
+
+  break;
+        }
 
 // --- BOT CONTROL ---
 case "public":
