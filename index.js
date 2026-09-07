@@ -862,12 +862,15 @@ END:VCARD
           break;
           
         case "ping": {
-          const start = process.hrtime.bigint();
-          // Small real async operation so each response time is measured dynamically
-          await Promise.resolve();
-          const speed = Number(process.hrtime.bigint() - start) / 1e6;
-          await replyWithContact(`🟢 𝑩𝒐𝒕 𝑰𝒔 𝑶𝒏𝒍𝒊𝒏𝒆 💋  ⚡ 𝑺𝒑𝒆𝒆𝒅 : ${speed.toFixed(2)}ms`);
-          break;
+  const start = process.hrtime.bigint();
+  await Promise.resolve();
+  const speed = Number(process.hrtime.bigint() - start) / 1e6;
+
+  await reply(`━[ 𝐗 𝐍ᴏʙɪᴛᴀ 𝐌ᴏᴅᴢ⎯꯭̽💜 ]━
+
+🌟 ᎮoŇᎶ: ${speed.toFixed(2)}๓Ş`);
+
+  break;
         }
 
         case "alive":
