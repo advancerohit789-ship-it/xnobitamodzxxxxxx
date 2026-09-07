@@ -6,3 +6,9 @@ session/
 !.env.example
 .npm/
 npm-debug.log*
+cookies.txt
+temp/
+*.mp3
+*.m4a
+*.webm
+*.opus
