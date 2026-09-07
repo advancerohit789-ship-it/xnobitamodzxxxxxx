@@ -1944,71 +1944,151 @@ case "gstatus": {
           await reply(`╭━━━〔 ✦ 𝐖𝐀𝐑𝐍 RESET ✦ 〕━━━╮\n┃\n┃ 👤 @${mentionR.split("@")[0]}\n┃ ✅ Warning count reset.\n┃\n┃ 🖤 𝙭 𝙣σвιтα\n╰━━━━━━━━━━━━━━━━━━━━╯`, { mentions: [mentionR] });
           break;
 
-        case "play":
-          if (!q) return reply("Please provide a song name!");
-          await reply("🔍 Searching song...");
+        case "play": {
+  if (!q) {
+    return reply("🎵 Example: .play Believer");
+  }
 
-          const search = await yts(q);
-          const video = search.videos[0];
-          if (!video) return reply("No results found.");
+  await reply("🔍 Searching song...");
 
-          await reply(`⏳ Downloading...\n🎵 ${video.title}`);
+  const search = await yts(q);
+  const video = search.videos?.[0];
 
-          // Temp directory
-          const tempDir = path.join(__dirname, "temp");
-          if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
+  if (!video) {
+    return reply("❌ No results found.");
+  }
 
-          const safeFile = path.join(tempDir, `${Date.now()}_${Math.random().toString(36).slice(2)}.mp3`);
+  await reply(`⏳ Downloading...\n🎵 ${video.title}`);
 
-          try {
-            // yt-dlp বাইনারি নেই হলে অটো ডাউনলোড করা (কিছু install করতে হবে না)
-            const dlpBin = await ensureYtDlp();
+  const tempDir = path.join(__dirname, "temp");
 
-            // yt-dlp দিয়ে audio download করা
-            await new Promise((resolve, reject) => {
-              exec(
-                `"${dlpBin}" -f "ba/b" --extract-audio --audio-format mp3 --audio-quality 0 -o "${safeFile.replace(/"/g, "\\\"")}.%(ext)s" --no-playlist "${video.url}"`,
-                { timeout: 300000, maxBuffer: 10 * 1024 * 1024 },
-                (error, stdout, stderr) => {
-                  if (error) reject(new Error((stderr || error.message || "unknown").slice(-300)));
-                  else resolve();
-                }
-              );
-            });
+  if (!fs.existsSync(tempDir)) {
+    fs.mkdirSync(tempDir, { recursive: true });
+  }
 
-            // yt-dlp বেসনাম-এর সাথে format suffix যোগ করে ফাইল তৈরি করে (নাম.mp3 বা নাম.m4a)
-            const downloaded = fs.readdirSync(tempDir).find(f => f.startsWith(path.basename(safeFile)) && /\.(mp3|m4a|webm|opus)$/i.test(f));
-            const finalPath = downloaded ? path.join(tempDir, downloaded) : safeFile;
+  const baseName =
+    `${Date.now()}_${Math.random().toString(36).slice(2)}`;
 
-            if (!fs.existsSync(finalPath) || fs.statSync(finalPath).size < 10000) {
-              throw new Error("File too small or missing");
-            }
+  const outputTemplate =
+    path.join(tempDir, `${baseName}.%(ext)s`);
 
-            // WhatsApp audio message হিসেবে পাঠানো
-            await sock.sendMessage(
-              jid,
-              {
-                audio: { url: finalPath },
-                mimetype: "audio/mpeg",
-                contextInfo: { mentionedJid: [sender] }
-              },
-              { quoted: msg }
+  try {
+    const dlpBin = await ensureYtDlp();
+
+    // cookies.txt must be in the bot's main folder
+    const cookiesFile = path.join(__dirname, "cookies.txt");
+
+    if (!fs.existsSync(cookiesFile)) {
+      throw new Error("cookies.txt not found");
+    }
+
+    await new Promise((resolve, reject) => {
+      const command =
+        `"${dlpBin}" ` +
+        `--cookies "${cookiesFile}" ` +
+        `-f "bestaudio/best" ` +
+        `--extract-audio ` +
+        `--audio-format mp3 ` +
+        `--audio-quality 0 ` +
+        `--no-playlist ` +
+        `--no-warnings ` +
+        `-o "${outputTemplate}" ` +
+        `"${video.url}"`;
+
+      exec(
+        command,
+        {
+          timeout: 300000,
+          maxBuffer: 10 * 1024 * 1024
+        },
+        (error, stdout, stderr) => {
+          if (error) {
+            reject(
+              new Error(
+                (stderr || error.message || "Download failed")
+                  .slice(-500)
+              )
             );
-
-            await reply(`✅ Song sent!\n🎵 ${video.title}\n⏱ ${video.timestamp}\n🔗 ${video.url}\n\n✦ 𝙓 𝙉𝙊𝘽𝙄𝙏𝘼 𝙈𝙊𝘿𝙯 ✦`);
-          } catch (err) {
-            console.log("Play Error:", err);
-            await reply("❌ Song download failed. Try another song or check later.");
-          } finally {
-            // Temp file cleanup (৩ সেকেন্ড পর)
-            setTimeout(() => {
-              try {
-                const leftover = fs.readdirSync(tempDir).filter(f => f.startsWith(path.basename(safeFile)));
-                leftover.forEach(f => fs.unlinkSync(path.join(tempDir, f)));
-              } catch (e) {}
-            }, 3000);
+          } else {
+            resolve();
           }
-          break;
+        }
+      );
+    });
+
+    const downloaded = fs.readdirSync(tempDir).find(
+      file =>
+        file.startsWith(baseName) &&
+        /\.(mp3|m4a|webm|opus)$/i.test(file)
+    );
+
+    if (!downloaded) {
+      throw new Error("Audio file was not created");
+    }
+
+    const finalPath = path.join(tempDir, downloaded);
+
+    if (
+      !fs.existsSync(finalPath) ||
+      fs.statSync(finalPath).size < 10000
+    ) {
+      throw new Error("Audio file is missing or too small");
+    }
+
+    await sock.sendMessage(
+      jid,
+      {
+        audio: { url: finalPath },
+        mimetype: "audio/mpeg",
+        fileName: `${video.title}.mp3`
+      },
+      { quoted: msg }
+    );
+
+    await reply(
+      `✅ *SONG SENT SUCCESSFULLY* 🎵\n\n` +
+      `🎶 *Title:* ${video.title}\n` +
+      `⏱️ *Duration:* ${video.timestamp || "Unknown"}\n\n` +
+      `✦ 𝙓 𝙉𝙊𝘽𝙄𝙏𝘼 𝙈𝙊𝘿𝙕 ✦`
+    );
+
+  } catch (err) {
+    console.log("Play Error:", err);
+
+    if (err.message === "cookies.txt not found") {
+      await reply(
+        "❌ *cookies.txt not found!*\n\n" +
+        "Place cookies.txt in the bot's main folder."
+      );
+    } else {
+      await reply(
+        "❌ *Song download failed.*\n\n" +
+        "Try another song."
+      );
+    }
+
+  } finally {
+    setTimeout(() => {
+      try {
+        if (fs.existsSync(tempDir)) {
+          const leftovers = fs.readdirSync(tempDir).filter(
+            file =>
+              file.startsWith(baseName) &&
+              /\.(mp3|m4a|webm|opus)$/i.test(file)
+          );
+
+          leftovers.forEach(file => {
+            try {
+              fs.unlinkSync(path.join(tempDir, file));
+            } catch {}
+          });
+        }
+      } catch {}
+    }, 5000);
+  }
+
+  break;
+        }
 
         case "vv": {
           // Reply to a View Once image/video/audio and use .vv
