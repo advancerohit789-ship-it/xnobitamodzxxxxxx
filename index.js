@@ -575,7 +575,7 @@ END:VCARD
               `*💗🙌🏻-!< আমাদের গ্রুপে এড হওয়ার জন্য বুক ভরা ভালোবাসা রইল-!! 🌚❤️‍🔥🪐*\n\n` +
               `*🧿🌝 .❐ কোনো প্রবলেম হলে এডমিনদের জানাবে, লিফ্ট নিবে না। গ্রুপ টাকে মিউট করে রেখে দাও 🥺🤌🏻!!*\n\n` +
               `*🕊️🤍 .❐ পরিবার টাকে ভালোবাসা দিয়ে সামনের দিকে এগিয়ে যেতে সাহায্য করো 😭❤️‍🩹🤌🏻!!*\n\n` +
-              `~*- ° . ° ❝ 🩷🦢 রাঁধে রাঁধে 🌼🕊️ ❞ ° . ° -*~`;
+              `~*- ° . ° ❝ 🩷🦢 রাঁধে রাঁধে 𐙚𝐌𝐢𝐬𝐬 𝐌𝐢𝐬𝐭𝐢𝐢𝐢ᡣ 🌼🕊️ ❞ ° . ° -*~`;
 
             const dp = await getProfilePictureBuffer(sock, userJid);
             if (dp) {
@@ -863,12 +863,15 @@ END:VCARD
           
         case "ping": {
   const start = process.hrtime.bigint();
+
   await Promise.resolve();
-  const speed = Number(process.hrtime.bigint() - start) / 1e6;
 
-  await reply(`━[ 𝐗 𝐍ᴏʙɪᴛᴀ 𝐌ᴏᴅᴢ⎯꯭̽💜 ]━
+  const speed =
+    Number(process.hrtime.bigint() - start) / 1e6;
 
-🌟 ᎮoŇᎶ: ${speed.toFixed(2)}๓Ş`);
+  await reply(
+    `*━[ 𝐗 𝐍ᴏʙɪᴛᴀ ${speed.toFixed(2)} 𝐌ᴏᴅᴢ⎯꯭̽💜 ]━*`
+  );
 
   break;
         }
